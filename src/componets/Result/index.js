@@ -24,7 +24,7 @@ const Result = ({ correctAnswer }) => {
     } else {
       setGrade("F");
     }
-  });
+  }, [correctAnswer, percentage]);
 
   return clicked ? (
     <QuizQuestion />

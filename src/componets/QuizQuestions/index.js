@@ -19,7 +19,7 @@ const QuizQuestions = () => {
   const handleNextBtn = () => {
     // console.log("selectedAnser", selectedAnswer);
     if (selectedAnswer !== "") {
-      questionsData.length != questionCount &&
+      questionsData.length !== questionCount &&
         setQuestionCount(questionCount + 1);
       setClicked(-1);
 
