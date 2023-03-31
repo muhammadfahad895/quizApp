@@ -4,13 +4,14 @@ const Welcome = ({ studentName, setStudentName, setClicked }) => {
   let [showError, setShowError] = useState(false);
 
   const handleClick = () => {
-    if (studentName) {
+    if (studentName.trim()) {
       setShowError(false);
-      console.log(false);
+      // console.log(false);
       setClicked(true);
+      localStorage.setItem("name", studentName);
     } else {
       setShowError(true);
-      console.log(true);
+      // console.log(true);
     }
   };
 
@@ -26,7 +27,7 @@ const Welcome = ({ studentName, setStudentName, setClicked }) => {
           value={studentName}
         />
         {showError && <p style={{ color: "red" }}> Name required </p>}
-        <button className="start-btn" onClick={handleClick}>
+        <button className="btnAll" onClick={handleClick}>
           Start Quiz
         </button>
       </div>

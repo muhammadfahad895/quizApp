@@ -45,7 +45,7 @@ li {
   border-radius: 10px;
   padding: 0.5rem 1.4rem;
 }
-.start-btn {
+.btnAll {
   align-items: center;
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -72,21 +72,22 @@ li {
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+  margin-right: 1rem;
 }
 
-.start-btn:hover,
-.start-btn:focus {
+.btnAll:hover,
+.btnAll:focus {
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   color: white;
   background-color: orangered;
 }
 
-.start-btn:hover {
+.btnAll:hover {
   transform: translateY(-1px);
 }
 
-.start-btn :active {
+.btnAll :active {
   background-color: #000000;
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
@@ -110,17 +111,18 @@ li {
     rgba(241, 241, 241, 0.1) 0px 8px 24px, rgba(3, 3, 3, 0.1) 0px 16px 56px;
   border-radius: 10px;
   width: 510px;
-  height: 510px;
+  height: 565px;
 }
 
 .questions li {
-  font-size: 1.3rem;
+  font-size: 1rem;
   border: 1px solid white;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
+  width: 380px;
 }
 .options {
   color: silver;
@@ -130,4 +132,22 @@ li {
   background-color: orangered;
   color: white;
   cursor: pointer;
+}
+
+.result {
+  display: flex;
+  min-height: 93vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-block: 1rem;
+  gap: 0.8rem;
+  color: white;
+  overflow: hidden;
+}
+
+.quiz-question-btns {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }

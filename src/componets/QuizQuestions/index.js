@@ -1,34 +1,39 @@
 import React, { useState } from "react";
 import questionsData from "../../questionsData";
 import Result from "../Result";
+import Welcome from "../welcome";
 
 const QuizQuestions = () => {
   let [questionCount, setQuestionCount] = useState(0);
   let [correctAnswer, setCorrectAnswer] = useState(0);
-  let [clicked, setClicked] = useState(false);
-  let [selected, setSelected] = useState("");
+  let [selectedAnswer, setSelectedAnswer] = useState("");
+  let [clicked, setClicked] = useState(-1);
+  const [onClicked, setOnClicked] = useState(false);
+
+  const handleSelectOption = (e, index) => {
+    setSelectedAnswer(e.target.innerHTML);
+    // console.log(e.target.innerHTML);
+    setClicked(index);
+  };
 
   const handleNextBtn = () => {
-    questionsData.length != questionCount &&
-      setQuestionCount(questionCount + 1);
-    setClicked(false);
-    if (selected === questionsData[questionCount].correctOption) {
-      return setCorrectAnswer + 1;
+    // console.log("selectedAnser", selectedAnswer);
+    if (selectedAnswer !== "") {
+      questionsData.length != questionCount &&
+        setQuestionCount(questionCount + 1);
+      setClicked(-1);
+
+      selectedAnswer === questionsData[questionCount].correctOption &&
+        setCorrectAnswer(correctAnswer + 1);
     } else {
-      return setCorrectAnswer + 0;
+      // console.log("error");
     }
+    setSelectedAnswer("");
   };
+  // console.log(correctAnswer);
 
-  const handleSelectOption = (e) => {
-    setSelected(e.target.innerHTML);
-
-    console.log(selected === questionsData[questionCount].correctOption);
-  };
-
-  console.log(selected);
-  console.log(correctAnswer);
-
-  return questionCount === questionsData.length ? (
+  return (onClicked && <Welcome />) ||
+    questionCount === questionsData.length ? (
     <Result correctAnswer={correctAnswer} />
   ) : (
     <div className="quiz-question flex">
@@ -38,33 +43,41 @@ const QuizQuestions = () => {
           Question {questionCount + 1}/
           <span style={{ color: "grey" }}>{questionsData.length}</span>
         </h2>
-        <p style={{ fontSize: "1.3rem" }}>
+        <p style={{ fontSize: "1.5rem" }}>
           {questionsData[questionCount].question}
         </p>
         <ul
           style={{ fontWeight: "400", fontSize: "1.3rem" }}
           className="questions"
         >
-          {questionsData[questionCount].options.map((option) => (
+          {questionsData[questionCount].options.map((option, index) => (
             <li
+              key={index}
               className="options"
-              onClick={handleSelectOption}
-              style={{ color: clicked && "red" }}
+              onClick={(e) => handleSelectOption(e, index)}
+              style={{
+                backgroundColor: clicked === index && "orangered",
+                color: clicked === index && "black",
+              }}
             >
               {option}
             </li>
           ))}
         </ul>
-        <button className="start-btn">Quit</button>
-        {questionCount + 1 === questionsData.length ? (
-          <button className="start-btn" onClick={handleNextBtn}>
-            Result
+        <div className="quiz-question-btns">
+          <button className="btnAll" onClick={() => setOnClicked(true)}>
+            Quit
           </button>
-        ) : (
-          <button className="start-btn" onClick={handleNextBtn}>
-            Next
-          </button>
-        )}
+          {questionCount + 1 === questionsData.length ? (
+            <button className="btnAll" onClick={handleNextBtn}>
+              Result
+            </button>
+          ) : (
+            <button className="btnAll" onClick={handleNextBtn}>
+              Next
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

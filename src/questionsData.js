@@ -8,15 +8,14 @@ const questionsData = [
       "JavaScript is a compiled language used to make the website interactive",
       "None of the mentioned",
     ],
-    correctOption: [
+    correctOption:
       "JavaScript is a scripting language used to make the website interactive",
-    ],
   },
   {
     id: 2,
     question: "How can a datatype be declared to be a constant type?",
     options: ["var", "let", "constant", "const"],
-    correctOption: ["const"],
+    correctOption: "const",
   },
   {
     id: 3,
@@ -27,7 +26,7 @@ const questionsData = [
       "Number type",
       "All of the mentioned",
     ],
-    correctOption: ["All of the mentioned"],
+    correctOption: "All of the mentioned",
   },
   {
     id: 4,
@@ -38,7 +37,7 @@ const questionsData = [
       "Parsing the javascript",
       "Compiling the JavaScript",
     ],
-    correctOption: ["Interpreting the JavaScript"],
+    correctOption: "Interpreting the JavaScript",
   },
   {
     id: 5,
@@ -49,7 +48,7 @@ const questionsData = [
       "Change the server location",
       " Performs handling of exceptions and occurrences",
     ],
-    correctOption: ["Allows JavaScript code to alter the behaviour of windows"],
+    correctOption: "Allows JavaScript code to alter the behaviour of windows",
   },
 ];
 
