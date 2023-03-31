@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import questionsData from "../../questionsData";
-import trophy from "/home/webdev/repos/quizapp/src/trophy.png";
+import trophy from "../";
 import QuizQuestion from "../QuizQuestions";
 
 const Result = ({ correctAnswer }) => {
